@@ -12,12 +12,16 @@
   "dependencies": {
     "body-parser": "^1.20.1",
     "cookie-parser": "^1.4.6",
+<<<<<<< HEAD
     "cors": "^2.8.5",
+=======
+>>>>>>> 77f075dc1e6fb5abd684d11c8c0898d261306897
     "ejs": "^3.1.8",
     "express": "^4.18.2",
     "express-busboy": "^9.0.0",
     "express-ejs-layouts": "^2.5.1",
     "express-fileupload": "^1.4.0",
+<<<<<<< HEAD
     "express-rate-limit": "^6.7.0",
     "express-session": "^1.17.3",
     "express-xss-sanitizer": "^1.1.6",
@@ -25,5 +29,10 @@
     "mysql2": "^2.3.3",
     "nodemon": "^2.0.20",
     "xss": "^1.0.14"
+=======
+    "express-session": "^1.17.3",
+    "mysql2": "^2.3.3",
+    "nodemon": "^2.0.20"
+>>>>>>> 77f075dc1e6fb5abd684d11c8c0898d261306897
   }
 }

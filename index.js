@@ -4,6 +4,7 @@ const initAdminRouter = require('./route/admin/initAdminRouter');
 const initCustomerRouter = require('./route/customer/initCustomerRouter');
 const fileUpload = require('express-fileupload');
 var cookieParser = require('cookie-parser');
+<<<<<<< HEAD
 var cors = require('cors')
 let session = require('express-session');
 const helmet = require("helmet");
@@ -23,6 +24,17 @@ const limiter = rateLimit({
 
 // Apply the rate limiting middleware to all requests
 app.use(limiter)
+=======
+
+let session = require('express-session');
+
+
+const app = express();
+const port = 3000;
+
+app.use(cookieParser());
+
+>>>>>>> 77f075dc1e6fb5abd684d11c8c0898d261306897
 app.use(session({
     secret: 'keyboard cat',
     resave: false,
@@ -34,7 +46,11 @@ app.use(fileUpload({
 }));
 app.use(express.urlencoded({ extended: true}));
 app.use(express.json());
+<<<<<<< HEAD
 app.use(xss());
+=======
+
+>>>>>>> 77f075dc1e6fb5abd684d11c8c0898d261306897
 app.use(express.static('./public'));
 
 app.set('view engine', 'ejs');
