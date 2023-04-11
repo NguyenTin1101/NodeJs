@@ -1,0 +1,65 @@
+<div class="container-fuild ">
+    <ul class="nav justify-content-center items-center !text-black  shadow-md !py-0">
+        <li class="nav-item !text-[24px] ">
+            <a href="/admin/login"><img class="w-16 h-16" src="/customer/image/logo.png" alt=""></a>
+        </li>
+        <li class="flex justify-center items-center">
+            <form class="flex gap-2 flex-row" method="post" action="/customer/san-pham/search">
+                <input class="form-control me-2" type="search" placeholder="Tìm kiếm ..." aria-label="Search" name="search">
+                <button class="btn btn-outline-success text-black hover:text-white" type="submit" >Tìm kiếm</button>
+            </form>
+        </li>
+        <li class="nav-item !text-[24px]">
+            <a class="nav-link active " aria-current="page" href="/customer/home">Trang chủ</a>
+        </li>
+        <li class="nav-item !text-[24px] dropdown" id="dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Sản phẩm
+            </a>
+            <ul class="dropdown-menu !text-[18px]" aria-labelledby="navbarDropdown">
+                <% dataHeaderSp.forEach((data) => { 
+                        %>
+                        <li><a class="dropdown-item !text-black" href="/customer/san-pham/loai-san-pham/<%= data.ID %> "><%= data.Ten %></a></li>
+                    <% 
+                }) %>
+                
+            </ul>
+        </li>
+        <li class="nav-item !text-[24px] dropdown" id="dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Xuất xứ
+            </a>
+            <ul class="dropdown-menu !text-[18px]" aria-labelledby="navbarDropdown">
+                <% dataHeaderXx.forEach((data) => { 
+                        %>
+                        <li><a class="dropdown-item !text-black" href="/customer/san-pham/xuat-xu/<%= data.ID %> "><%= data.XuatXu %></a></li>
+                    <% 
+                }) %>
+                
+            </ul>
+        </li>
+        <% if(!sessionID) { %>
+            <li class="nav-item !text-[24px]">
+                <button type="button" class="btn btn-success"><a href="/customer/login">Đăng nhập</a></button>
+            </li>
+            <li class="nav-item !text-[24px]">
+                <button type="button" class="btn btn-danger"><a href="/customer/signup">Đăng ký</a></button>
+            </li>
+        <% } else { %>
+            <li class="nav-item !text-[24px] dropdown" id="dropdown">
+                <button class="dropdown-toggle hover:text-[#F09A11]" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Tài khoản: <%= sessionID.TenTK %>
+                </button>
+                <ul class="dropdown-menu !text-[18px] " aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item !text-black" href="/customer/changePass">Đổi mật khẩu</a></li>
+                <li><a class="dropdown-item !text-black" href="/customer/cart">Giỏ hàng</a></li>
+                <li><a class="dropdown-item !text-black" href="/customer/don-hang">Đơn hàng hiện có</a></li>
+                <li><a class="dropdown-item !text-black" href="/customer/don-hang/lich-su">Lịch sử đặt hàng</a></li>
+                <li><a class="dropdown-item !text-black" href="/customer/login">Đăng xuất</a></li>
+                </ul>
+            </li>
+        <% } %>
+    </ul>
+    <script src="/customer/js/popper.min.js"></script>
+    <script src="/customer/js/bootstrap.min.js"></script>
+</div>
