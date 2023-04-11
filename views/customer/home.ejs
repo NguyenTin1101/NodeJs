@@ -1,0 +1,43 @@
+<body>
+    <% dataHomeLsp.forEach((dataLsp) => { %>
+        <div class="container">
+            <div class="Tieu_de mt-10 ">
+                <div class="">
+                    <%= dataLsp.Ten %>
+                </div>
+            </div>
+            <div class="row grid grid-cols-4 w-full my-10">
+                <% dem = 1; dataHomeSp.forEach((dataSp) => {
+                    if(dataLsp.ID == dataSp.ID_LoaiSanPham && dem <= 4 ){ %>
+                        <div class="w-full">
+                            <a href="/customer/san-pham/chi-tiet/<%= dataLsp.ID %>/<%= dataSp.ID %>" style="color: black;">
+                                <div class="rounded-2xl shadow-lg w-[80%] overflow-hidden">
+                                    <div class="">
+                                        <img class="object-fill w-full h-[200px]" src="/admin/image/<%= dataSp.imgName %>" class="w-full" id="NgoaiNhap1" alt="...">
+                                    </div>
+                                    <div class="card-body mb-6">
+                                        <div class="w-full flex justify-center items-center pb-10 text-[28px]"><%= dataSp.TenSanPham %></div>
+                                        <div class="opacity-60 px-2">
+                                            Xuất xứ: <%= dataSp.XuatXu %><br>
+                                            Giá bán: <%= dataSp.GiaBan %>/kg<br>
+                                            Số lượng:  <%= dataSp.SoLuong %>kg
+                                        </div>
+                                    </div>
+                                    <div class="w-full h-16 bg-lime-500/50">
+
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    <%  dem += 1
+                    }
+                }) %>
+            </div>
+
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end" style="margin: 10px 0px;">
+                <button class="btn btn-primary me-md-2 text-black/60 hover:!text-black" type="button" style="background: white;border-color: #00e85d;"><a href="/customer/san-pham/loai-san-pham/<%= dataLsp.ID %>">Xem tất cả <i class="fa fa-arrow-right" aria-hidden="true"></i></a></button>
+            </div>
+        </div>
+    <% }) %>
+        
+</body>
